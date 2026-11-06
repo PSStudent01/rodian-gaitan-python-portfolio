@@ -1,0 +1,61 @@
+LOGS:
+
+================================================== calc_with_functions.py: =====================================================
+
+Enter first number: 3
+Enter operation sign: +
+Enter second number: 8
+11.0
+
+
+Enter first number: 3
+Enter operation sign: -
+Enter second number: 8
+-5.0
+
+
+Enter first number: 3
+Enter operation sign: *
+Enter second number: 8
+24.0
+
+
+Enter first number: 3
+Enter operation sign: /
+Enter second number: 8
+0.375
+
+
+Enter first number: 3
+Enter operation sign: /
+Enter second number: 0
+Error: cannot divide by zero!
+
+================================================== data_processing.py: ========================================================
+
+80.0
+Warning: cannot calculate an average of an empty tuple.
+Average: not available (no grades to average)
+
+The average grade for Math is 80.0
+The average grade for Science is 83.0
+The average grade for History is 75.2
+Warning: cannot calculate an average of an empty tuple.
+The average grade for EdgeCase1 is not available (no grades).
+
+
+======================================================== exception_demo.py: =====================================================
+
+5.0
+Division operation completed
+2.0
+Division operation completed
+Warning: Cannot divide by zero
+Division operation completed
+Warning: Cannot divide by zero
+Division operation completed
+Warning: Cannot divide by zero
+Division operation completed
+A generic exception was caught: invalid literal for int() with base 10: 'abc'
+
+

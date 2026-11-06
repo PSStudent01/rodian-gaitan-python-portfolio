@@ -1,0 +1,28 @@
+#
+[for 'builtin_usage.py']
+Random Number: 91
+Square root of 91: 9 (floored)
+Operating System: Windows
+Python Version: 3.14.7
+
+Random Number: 72
+Square root of 72: 8 (floored)
+Operating System: Windows
+Python Version: 3.14.7
+
+#
+[for 'external_package.py']
+This text is in blue!
+This text is in red!
+Returns back to normal text
+
+#
+[for 'utilities.py']
+Hello Rod!
+120
+
+#
+[for 'use_utilities.py']
+Hello Rod!
+The factorial of 5 is 120
+

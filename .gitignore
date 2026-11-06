@@ -1,0 +1,10 @@
+# Exclude backup and archived project folders
+/reserves/
+
+# Python
+__pycache__/
+*.pyc
+
+# Files created by running the scripts
+diary.txt
+tasks.csv

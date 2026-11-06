@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+diary.txt
+what-i-learned.txt

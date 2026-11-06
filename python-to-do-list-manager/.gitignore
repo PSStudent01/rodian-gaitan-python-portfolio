@@ -1,0 +1,9 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Backup and testing files
+/reserves/
+
+# Runtime-generated task data
+/tasks.csv

@@ -1,0 +1,30 @@
+# Output Logs:
+
+========================================== Execution Output — bank.py ==============================================================
+
+Account 12345 – Owner: Alice, Balance: $500.00
+Amount deposited: $100.00
+New balance: $600.00
+Amount withdrawn: $50.00
+New balance: $550.00
+Error: Insufficient funds: cannot withdraw more than the current balance.
+Error: Invalid amount. Enter a withdrawal amount greater than $0.00.
+Error: Invalid amount. Enter a deposit amount greater than $0.00.
+Account 12345 – Owner: Alice, Balance: $550.00
+
+
+========================================== Execution Output — savings.py ==============================================================
+
+Account 989998 – Owner: Bob, Balance: $500.00, Interest Rate: 15%
+Interest rate applied: 15%
+Interest earned: $75.00
+New balance: $575.00
+Account 989998 – Owner: Bob, Balance: $575.00, Interest Rate: 15%
+Amount deposited: $100.00
+New balance: $675.00
+Amount withdrawn: $10.00
+New balance: $665.00
+Error: Insufficient funds: cannot withdraw more than the current balance.
+Error: Invalid amount. Enter a deposit amount greater than $0.00.
+Error: Invalid amount. Enter a withdrawal amount greater than $0.00.
+Account 989998 – Owner: Bob, Balance: $665.00, Interest Rate: 15%

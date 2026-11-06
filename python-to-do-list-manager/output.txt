@@ -1,0 +1,1484 @@
+Sample Output Logs:
+
+================================================= Run 1: Core features =================================================
+1) 
+- Start the program with no tasks.txt present (shows startup with no file):
+-- I moved the current 'tasks.csv' file to a folder called 'Reserves'
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This is a "Missing file" capture. The 'tasks.csv' wasn't in the folder when you launched. The program started normally, showed the menu, and printed no traceback.}
+
+2) 
+- L: list on an empty list 
+-- the first time you run the program, before you’ve added anything, press L at the menu:
+
+==================== Task Manager ==========================
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{With no tasks yet, my list function has nothing to show. The point is to prove the program handles that case gracefully, printing something like “No tasks found” rather than crashing or printing a blank screen with no explanation.}
+
+3)
+- A: add a task with a past due date to show the overdue marker:
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 1
+Enter task due date: 2025-01-01
+
+Task 'Task 1' added.
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This added a task whose due date has already passed, so that when I list tasks, the program flags it as overdue.
+- Note: the overdue marker yet. That’s expected, since the marker only appears when you list}
+
+4)
+- A: add a task with a future due date:
+
+==================== Task Manager ==========================
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 2
+Enter task due date: 2026-11-15
+
+Task 'Task 2' added.
+
+==================== Task Manager ==========================
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. It shows a future date (2026-11-15, which is after today’s 2026-10-29) and the confirmation line.}
+
+5)
+- A: add a task with no due date (iows, press Enter):
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 3
+Enter task due date: 
+
+Task 'Task 3' added.
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. Pressing Enter on the date prompt created the task with no error, so your main.py is already turning a blank into None (or something equivalent)}
+
+6)
+- A: add a task due today (to demostrate it is not marked overdue):
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 4
+Enter task due date: 2026-10-29
+
+Task 'Task 4' added.
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. The date is today (2026-10-29) and I got the confirmation line!}
+
+7)
+- L: list all tasks (overdue marker, dates, and [ ] statuses visible):
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [-] Task: Task 2 (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+
+==================== Task Manager ========================== 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This output shows:
+Task 1 (2025-01-01) flagged OVERDUE
+Task 2 (future) not flagged
+Task 3 (no date) not flagged, and no crash, so your is not None check is doing its job
+Task 4 (due today) not flagged}
+
+8)
+- C: complete task 1. Then L to show [X]:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [-] Task: Task 2 (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+Number of the task to mark completed: 1
+
+Task 'Task 2' marked as completed.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. Task 2 went from [-] to [X] after you completed it, and Task 1 is still the only one flagged OVERDUE.}
+
+9a)
+- Added a task to delete called "Task 5" so as to keep the others intact:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 5
+Enter task due date: 
+
+Task 'Task 5' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 5 (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option:  
+
+9b)
+- D: delete "Task 5". Then L to show the renumbered list:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 5 (due None) 
+Number of the task to be deleted: 4
+
+Task 'Task 5' deleted.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. The log now shows Task 'Task 5' deleted. between the prompt and the next list, and the list after goes from five tasks back to four, meaning that index 4 ('Task 5') was successfully deleted.}
+
+10)
+- Q: choose 'y' for yes to save:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): y
+Tasks saved!
+
+{This works. The log shows the quit, the save prompt, your y, and Tasks saved!, which is evidence for saving on exit.
+- I did:
+ls
+cat tasks.csv
+...and now I see not only 'tasks.csv' was created, but all four rows are listed inside the file as follows:
+Task 1,2025-01-01,False
+Task 2,2026-11-15,True
+Task 3,,False
+Task 4,2026-10-29,False
+#
+VIP Observations:
+- shouldn't I bring back my old file 'tasks.csv' I saved in the 'Reserves' folder back to my project folder, before 'q' > 'y'
+-- Not necessarily, and you may not want to. Think about what the old file contains.
+That tasks.csv is left over from your earlier testing, so it holds whatever tasks you had then. If you drop it back into the project folder, the program loads those old tasks at startup, and your Run 1 log would start with a pile of tasks instead of the empty list. For Run 1 you want a clean start with no file.
+-- By pressing Q and answering yes. That creates a fresh tasks.csv in the folder you launched from, containing exactly your four tasks.
+- So if I do 'q' > 'y' how does it know to name the file "tasks.csv"?
+-- It’s hardcoded as a default in your own code. Look at the first line of your save_tasks:
+%
+def save_tasks(task_list, filename="tasks.csv")}
+
+================================================= Run 2: Persistence =================================================
+
+1)
+- In the terminal, 
+-- cd to the project root folder
+-- print the file by doing <cat tasks.txt>:
+
+$ cat tasks.csv
+Task 1,2025-01-01,False
+Task 2,2026-11-15,True
+Task 3,,False
+Task 4,2026-10-29,False
+{This works. The 'cat' output shows the file has all 4 rows}
+
+2)
+- L: confirm titles, due dates, and completed status all loaded correctly:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. The restart then loading them back with Task 2 still [X] and Task 1 still OVERDUE, demostrates persistence.}
+
+3)
+- A: add one more task, then Q and yes to save. 
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 6 - Persistance Demo
+Enter task due date: 
+
+Task 'Task 6 - Persistance Demo' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): y
+Tasks saved!
+Good Bye! 
+
+{This works. Received confirmation that 'Task 6 - Persistance Demo' has been successfully added. L option clearly displays the task. When doing 'q' and 'y' script confirms that tasks have been saved. The script exists out}
+
+4)
+- Run the Python script again and L to show the new task persisted along with the old ones
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. Running the Python script again, then selecting L option does show the new task 'Task 6 - Persistance Demo' persisted along with the old ones}
+
+5a)
+A: add a task, then 'Q' and 'no' to save - to illustrate NO persistance when you do 'q' > 'n':
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 7
+Enter task due date: 
+
+Task 'Task 7' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+5: [-] Task: Task 7 (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): n
+Good Bye! 
+
+{This works. Confirmation recieved thabt "Task 'Task 7'" was added. NO confirmation that tasks WERE NOT saved, though}
+
+5b)
+- Run Python run script again.
+- L to show the unsaved task is not there:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. Ran Python script again and L to show the unsaved task '5: [-] Task: Task 7 (due None)' is no longer there.}
+
+================================================= Run 3: Input errors =================================================
+1)
+- At the menu, enter an invalid choice like X:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: x
+Enter a valid option!
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. when entering an invalid character like 'x', it prints "Enter a valid option!", and the menu comes back with no crash, indicating that 'invalid menu input feature' works.}
+
+2)
+- At the menu, press Enter with nothing typed:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+Enter a valid option!
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. A blank Enter prints "Enter a valid option!" and the main menu comes back, so empty input is handled the same way as an invalid character, with no crash.}
+
+3)
+- Lowercase menu choice (e.g. a, l) to show it still works, if your code supports it.
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 8
+Enter task due date: 2026-10-31
+
+Task 'Task 8' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: A
+Enter task title: Task 9
+Enter task due date: 2026-10-31
+
+Task 'Task 9' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+5: [-] Task: Task 8 (due 2026-10-31) 
+6: [-] Task: Task 9 (due 2026-10-31) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: L
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+5: [-] Task: Task 8 (due 2026-10-31) 
+6: [-] Task: Task 9 (due 2026-10-31) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. I typed both a and A, and l and L, and they behaved identically: tasks added, list shown, no crash. That’s your case-insensitivity evidence. This capture proves uppercase works.
+- Keep in mind that Tasks 8 and 9 are now in memory but unsaved. If you quit with n, they vanish and tasks.csv stays at five tasks, which keeps your Run 2 evidence consistent with the file.}
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): n
+Good Bye! 
+
+4)
+A: empty title (just Enter):
+
+==== BUG!!!!! 
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: 
+Enter task due date: 2026-10-30
+
+Task '' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+5: [-] Task:  (due 2026-10-30) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+FIXED ('see 'what-i-learned.txt'')!!!! ================================
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: 
+Enter task due date: 2026-12-26
+
+Error: task title cannot be empty.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. A blank title now prints Error: task title cannot be empty., no task is created, and the menu comes right back. That’s your evidence for empty-title handling.}
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This confirms it. After the empty-title attempt, the list still has only your five saved tasks (1, 2, 3, 4 and 6), with no blank entry}
+
+5)
+A: wrong date format for example 10/03/2025:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 7
+Enter task due date: 10/03/2025
+Error: '10/03/2025' is not a valid date. Use YYYY-MM-DD.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. 10/03/2025 printed Error: '10/03/2025' is not a valid date. Use YYYY-MM-DD., no “added” line appeared, and the menu came back with no crash.}
+
+6)
+- A: impossible date, e.g. 2025-02-56
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 7
+Enter task due date: 2025-02-56
+Error: '2025-02-56' is not a valid date. Use YYYY-MM-DD.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. 2025-02-56 is an impossible date, and your program printed Error: '2025-02-56' is not a valid date. Use YYYY-MM-DD., created nothing, and returned to the menu}
+
+7)
+- A: date with text, for example, tomorrow:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: Task 8
+Enter task due date: tomorrow
+Error: 'tomorrow' is not a valid date. Use YYYY-MM-DD.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. 'tomorrow' resulted in the same error, nothing was created, and the menu came back.}
+
+8)
+- C: non-numeric index (for example, abc):
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: abc
+
+Error: please enter a number, like 0 or 1.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. 'abc' printed "Error: please enter a number, like 0 or 1.", no traceback, and the menu came back. So main.py already guards int()}
+
+9)
+- C: out-of-range index (example 99):
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: 99
+
+Error: there is no task number 99.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. '99' printed "Error: there is no task number 99.", nothing changed, and the menu came back.}
+
+10)
+- C: 0 :
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: 0
+
+Task 'Task 1' marked as completed.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. it behaves as expected. 0 is a valid index in your 0-based list, so it marked Task 1 as completed and printed the confirmation}
+
+11)
+- C: negative index (-1) for completed tasks. This one can wrongly succeed in Python, so it should be checked.
+BUG!!!!!!!!!!!!!! ================================================================================:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [X] Task: Task 1  (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: -1
+
+Task 'Task 6 - Persistance Demo' marked as completed.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [X] Task: Task 1  (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) 
+4: [X] Task: Task 6 - Persistance Demo  (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This confirms the bug. -1 was accepted and silently marked the last task (Task 6) as completed, with a success message, when it should have been rejected}
+
+FIXED !!!!!!!!!!!! ==================================:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: -1
+
+Error: there is no task number -1.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{The fix works. -1 now prints "Error: there is no task number -1.", and the list in that capture shows "Task 6 still [-]", so nothing got completed by accident. So negative-index handling on C works}
+
+12)
+#  D: non-numeric index (abc):
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to be deleted: abc
+
+Error: please enter a number, like 0 or 1.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option:  
+
+{This works. 'abc' on D printed "Error: please enter a number, like 0 or 1"., nothing was deleted, and the menu came back. The list in the capture still shows all 5 tasks.}
+
+13) 
+# D: out-of-range index (99):
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to be deleted: 99
+Error: there is no task number 99.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. '99' on 'D' printed Error: there is no task number 99., and the L right after shows all five tasks still there, so nothing was deleted. That’s your evidence for out-of-range handling on D.}
+
+14)
+# D: 0:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to be deleted: 0
+
+Task 'Task 1' deleted.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [X] Task: Task 2  (due 2026-11-15) 
+1: [-] Task: Task 3 (due None) 
+2: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+3: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. D with 0 works. It printed Task 'Task 1' deleted., and the list renumbered to four tasks starting with Task 2. Valid-index deletion is covered.} 
+{- Quit with n now so Task 1 isn’t saved, otherwise tasks.csv loses it and your Run 2 evidence stops matching the file!!!
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): n
+Good Bye! 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE   
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+- {This works. Task 1 is back because the delete was never saved.}}
+
+15)
+#  D: negative index (-1) for deleted tasks:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to be deleted: -1
+Error: there is no task number -1.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. -1 on D printed "Error: there is no task number -1"., and the L right after shows all five tasks still there, Task 6 included. So that means negative-index handling on delete is working, so the recent fix is working in both 'complete_task' and 'delete_task'.}
+
+16)
+# C on an empty list.
+- C on an empty list. Quit with n first. Then in Git Bash, from the project folder, run "mv tasks.csv tasks_backup.csv"
+
+~/Desktop/Per Scholas Python Essentials/2026 Python Essentials
+$ mv tasks.csv tasks_backup.csv
+
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+No tasks found.
+Number of the task to mark completed: 0
+
+Error: there is no task number 0.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+No tasks found.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. “No tasks found.” now prints, and it printed inside C because the main.py calls list_tasks before asking for the number. Then 0 gave Error: there is no task number 0. and the menu came back with no crash}
+
+17)
+# D on an empty list:
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: d
+No tasks found.
+Number of the task to be deleted: 0
+Error: there is no task number 0.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+No tasks found.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. D on an empty list printed No tasks found. and then Error: there is no task number 0., and L on its own printed No tasks found.. No crashes.}
+
+18)
+- Press q and answer n, so no empty tasks.csv gets created.
+- In Git Bash, from the project folder, run mv tasks_backup.csv tasks.csv to put your five tasks back. Run cat tasks.csv to confirm the five rows are there.
+
+19)
+- C on a task that is already completed:
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: c
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+Number of the task to mark completed: 1
+
+Task 'Task 2' marked as completed.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{- I picked Task 2, which was already [X], and the program didn’t crash. It printed Task 'Task 2' marked as completed. and the list looks the same afterward.
+- The one ackward part is that it says “marked as completed” for a task that was already done. It’s harmless, and the assignment doesn’t require handling it, so I'll leave it as is.}
+
+20)
+- Q answering with an invalid save answer (e.g. maybe), if your code handles it.
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): maybe
+Good Bye! 
+
+{- This works as far as nothing crashing, but "maybe" was treated as "no". It printed Good Bye! with no message about saving, so any unsaved changes were silently thrown away.The rubric needs the program not to crash on bad input, and it didn’t.
+- BUG !!! Invalid save answer 'maybe' is treated as No; program exits without crashing.}
+
+
+
+
+================================================= Run 4: File errors =================================================
+
+1)
+- Missing file: delete tasks.txt, start the program, and show it starts normally with an empty list and no crash.
+-- I moved the current 'tasks.csv' file to a folder called 'Reserves'
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works. This is a "Missing file" capture. The 'tasks.csv' wasn't in the folder when you launched. The program started normally, showed the menu, and printed no traceback.}.
+
+2)
+- Empty file: created a blank 'tasks.csv', re-started the program to show it doesn’t crash.
+I)
+$ cat tasks.csv
+
+II)
+$ python main.py
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+No tasks found.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{This works.  With a blank tasks.csv, the program started with no crash, and L printed No tasks found.. That’s your evidence for the empty-file case.
+Also it's clean protecting against privacy issues. It shows the blank file, the fresh launch, and No tasks found. with no crash, and your username and path are gone. Test 2 is done.}
+
+3)
+- Corrupted line: edit 'tasks.txt' so one line is malformed (missing a field, bad date, or bad completed value), start the program, and show the friendly message.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+No tasks found.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: 
+
+{With the junk file still in place, the program now starts (without crashing hard)and shows the menu instead of dying with the ValueError traceback. The len(row) != 3 check made it skip every bad row before the unpacking line could crash.
+To make the capture show more than a menu, press L. You should see No tasks found., which proves it started with an empty list because every junk line was skipped. Then quit with n, not y. Answering y would overwrite the junk file with an empty one.}
+
+4)
+- Read-only file: set tasks.txt to read-only (chmod 444 tasks.txt or Properties > Read-only on Windows), start the program, add a task, Q and yes to save, and show the error message instead of a traceback:
+
+- First, restore your good data in Git Bash from the project folder:
+- Make the file read-only: chmod 444 tasks.csv
+- Start the program, press A, add a task (any title, no date).
+- Press Q, answer y.
+- Paste what you get.
+
+$ cat tasks.csv
+Task 1,2025-01-01,False
+Task 2,2026-11-15,True
+Task 3,,False
+Task 4,2026-10-29,False
+Task 6 - Persistance Demo,,False
+
+$ chmod 444 tasks.csv
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: a
+Enter task title: some task
+Enter task due date: 
+
+Task 'some task' added.
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: l
+0: [-] Task: Task 1 (due 2025-01-01) OVERDUE
+1: [X] Task: Task 2  (due 2026-11-15) 
+2: [-] Task: Task 3 (due None) 
+3: [-] Task: Task 4 (due 2026-10-29) OVERDUE
+4: [-] Task: Task 6 - Persistance Demo (due None) 
+5: [-] Task: some task (due None) 
+
+==================== Task Manager ==========================: 
+            (A) Add a new task.
+            (C) Mark a task as completed.
+            (D) Delete a task.
+            (L) List all tasks. 
+            (Q) Quit.
+            
+Select menu option: q
+Save tasks before quitting? (Y/N): y
+Error: could not save tasks ([Errno 13] Permission denied: 'tasks.csv').
+Tasks saved! <-----------------{Known issue: "Tasks saved!" prints even when the save fails.}.
+Good Bye! 

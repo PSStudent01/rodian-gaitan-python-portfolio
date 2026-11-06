@@ -1,0 +1,212 @@
+# Output Logs for Each Menu Option:
+
+#
+{I pressed ENTER!}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+
+Invalid choice. Please enter a number from 1 to 5.
+
+#
+{Pressed option 1, the pressed ENTER and got 'Name cannot be empty.'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: 
+Name cannot be empty.
+
+#
+{Pressed option 1, entered 1 name and associated phone number. I used '1234567' for quick testing purposes}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Rod1
+Enter phone number (digits only): 1234567
+Contact added.
+
+#
+{Pressed option 1, entered 1 name and associated phone number. I used '1234567' for quick testing purposes}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Rod2
+Enter phone number (digits only): 1234567
+Contact added.
+
+#
+{Pressed option 1, entered 1 name and associated phone number. I used '1234567' for quick testing purposes}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Oscar
+Enter phone number (digits only): 1234567
+Contact added.
+
+#
+{Pressed option 1, entered and existing name 'Rod1' and got 'That name already exists. Contact not added.'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Rod1
+That name already exists. Contact not added.
+
+#
+{Pressed option 1, tried to enter a new contact but with less tha 7 digits}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Rod4
+Enter phone number (digits only): 8768  
+Invalid phone number. Use 7 to 15 digits only.
+
+{Pressed option 1, tried to enter a new contact but with letters not numbers}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+1
+Enter name: Rod4
+Enter phone number (digits only): !@#%$%jhgkjhggjhhghg  
+Invalid phone number. Use 7 to 15 digits only.
+
+#
+{Pressed option 2, and tried to view all contacts, without having entered any and got 'Your contacts list is currently empty! Please add at least 1 contact'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+2
+Your contacts list is currently empty! Please add at least 1 contact
+
+#
+{Pressed option 2, and returned all 3 contacts I has added to the contact list}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+2
+Rod1: 1234567
+Rod2: 1234567
+Oscar: 1234567
+
+#
+{Pressed option 3, and succesfully searched for 'Oscar'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+3
+Enter a name to search: Oscar
+Oscar: 1234567
+
+#
+{Pressed option 3, and searched for 'Robert' who I never added, and got 'No matching contact found.'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+3
+Enter a name to search: Robert
+No matching contact found.
+
+#
+{Pressed option 4, and succesfully deleted 'Rod2'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+4
+Enter name to be removed: Rod2
+Rod2 has been removed
+
+#
+{Pressed option 2, to verify if in fact contact 'Rod2' had been deleted and it was}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+2
+Rod1: 1234567
+Oscar: 1234567
+
+#
+{Pressed option 4, and entered 'Robert' who I never added and for me to delete, and got 'That contact does not exist.'}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+4
+Enter name to be removed: Robert
+That contact does not exist.
+
+#
+{Pressed option 5, to exit the app}
+Contact Book Menu:
+1) Add New Contact
+2) View All Contacts
+3) Search Contact
+4) Delete Contact
+5) Exit
+Enter your choice (1-5): 
+5
+Goodbye!
+

@@ -1,0 +1,117 @@
+#################################### Logs for 'bubble_sort_demo.py' #####################################################
+
+Original list: [64, 25, 12, 22, 11]
+After pass 1: [25, 12, 22, 11, 64]
+After pass 2: [12, 22, 11, 25, 64]
+After pass 3: [12, 11, 22, 25, 64]
+After pass 4: [11, 12, 22, 25, 64]
+Sorted list: [11, 12, 22, 25, 64]
+
+#################################### Logs for 'even_sum.py' #####################################################
+
+The sum of even numbers from 1 to 50 is 650.
+The sum of even numbers from 1 to 50 is 650.
+
+#################################### Logs for 'grade_checker.py' #####################################################
+ 
+Please enter your score(0-100): 100
+Your grade is: A
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 95
+Your grade is: A
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 90
+Your grade is: A
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 89
+Your grade is: B
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 85
+Your grade is: B
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 80
+Your grade is: B
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 79
+Your grade is: C
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 75
+Your grade is: C
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 70
+Your grade is: C
+Congrats, you've passed the course!
+
+
+Please enter your score(0-100): 69
+Your grade is: D
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 65
+Your grade is: D
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 60
+Your grade is: D
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 55
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 50
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 40
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 30
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 20
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 10
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): 0
+Your grade is: F
+Unfortunately, you'll need to retake the course!
+
+
+Please enter your score(0-100): abc
+Invalid input. Please enter a whole number.
+Please enter your score(0-100): 150
+Score must be between 0 and 100.
+Please enter your score(0-100): -1
+Score must be between 0 and 100.
